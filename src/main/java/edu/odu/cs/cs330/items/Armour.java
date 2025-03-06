@@ -46,15 +46,7 @@ public class Armour extends Item {
      */
     public Armour()
     {
-        // Initialize all data members (including those inherited from Item)
-	this.setDurability(0);
-	this.setDefense(0);
-	this.setMaterial("");
-	this.setModifier("");
-	this.setModifierLevel(0);
-	this.setElement("");
-	this.setName("");
-	this.stackable = false;
+
     }
 
     /**
@@ -64,15 +56,7 @@ public class Armour extends Item {
      */
     public Armour(Armour src)
     {
-        // Set and/or copy data members for *this* object based on *src*.
-        this.setDurability(src.getDurability());
-        this.setDefense(src.getDefense());
-        this.setMaterial(src.getMaterial());
-        this.setModifier(src.getModifier());
-        this.setModifierLevel(src.getModifierLevel());
-        this.setElement(src.getElement());
-        this.setName(src.getName());
-        this.stackable = src.isStackable();
+
     }
 
     /**
@@ -207,13 +191,7 @@ public class Armour extends Item {
     @Override
     public void read(Scanner snr)
     {
-        super.name      	= snr.next();
-	this.material 		= snr.next();
-	this.durability		= snr.nextInt();
-	this.defense		= snr.nextInt();
-	this.modifier		= snr.next();
-	this.modiferLevel     	= snr.nextInt();
-	this.element		= snr.next();
+
     }
 
     /**
@@ -260,15 +238,7 @@ public class Armour extends Item {
     @Override
     public String toString()
     {
-   	String summaryLine = String.format(
-            " Nme: %s%n Dur: %d%n Def: %d%n Mtl: %s%n Mdr: %s (Lvl %d)%n Emt: %s%n",
-	   	this.getName(),
-	      	this.getDurability(),
-		this.getDefense(),
-		this.getMaterial(),
-		this.getModifier(),
-		this.getModifierLevel(),
-		this.getElement()
+        return "";
     }
 }
 
