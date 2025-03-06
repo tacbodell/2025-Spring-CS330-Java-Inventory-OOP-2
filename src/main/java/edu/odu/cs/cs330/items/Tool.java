@@ -57,7 +57,13 @@ public class Tool extends Item {
      */
     public Tool(Tool src)
     {
-
+	this.setName(src.getName());
+	
+	this.setDurability(src.getDurability());
+	this.setSpeed(src.getSpeed());
+	this.setMaterial(src.getMaterial());
+	this.setModifier(src.getModifier());
+	this.setModifierLevel(src.getModifierLevel());
     }
 
     /**
@@ -172,7 +178,12 @@ public class Tool extends Item {
     @Override
     public void read(Scanner snr)
     {
-        // Complete this method
+        super.name = snr.next();
+	this.material = snr.next();
+	this.durability = snr.nextInt();
+	this.speed = snr.nextInt();
+	this.modifier = snr.next();
+	this.modifierLevel = snr.nextInt();
     }
 
     /**
@@ -199,7 +210,11 @@ public class Tool extends Item {
         Tool rhsItem = (Tool) rhs;
 
         // Replace the next line
-        return false;
+        if (this.getName() == rhsItem.getName()
+		&& this.getMaterial() == rhsItem.getMaterial()
+		&& this.getModifier() == rhsItem.getModifier())
+	{ return true; }
+	else { return false; }
     }
 
     /**
@@ -209,9 +224,9 @@ public class Tool extends Item {
     @Override
     public int hashCode()
     {
-        return this.name.hashCode()
-             + this.material.hashCode()
-             + this.modifier.hashCode();
+        return this.getName().hashCode()
+             + this.getMaterial().hashCode()
+             + this.getModifier().hashCode();
     }
 
     /**
@@ -220,6 +235,19 @@ public class Tool extends Item {
     @Override
     public String toString()
     {
-        return "";
+        String summaryLine = String.format(
+            "  Nme: %s%n  Dur: %d%n  Spd: %d%n  Mtl: %s%n  Mdr: %s (Lvl %d)%n",
+                this.getName(),
+                this.getDurability(),
+		this.getSpeed(),
+		this.getMaterial(),
+		this.getModifier(),
+		this.getModifierLevel()
+        );
+
+        StringBuilder strBld = new StringBuilder();
+        strBld.append(summaryLine);
+
+        return strBld.toString();
     }
 }
