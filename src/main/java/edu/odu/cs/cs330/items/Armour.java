@@ -239,7 +239,12 @@ public class Armour extends Item {
         Armour rhsItem = (Armour) rhs;
 
         // Replace the next line
-        return false;
+        if (this.getName() == rhsItem.getName()
+		&& this.getMaterial() == rhsItem.getMaterial()
+		&& this.getModifier() == rhsItem.getModifier()
+		&& this.getElement() == rhsItem.getElement())
+	{ return true; }
+	else { return false; }
     }
 
     /**
@@ -249,7 +254,10 @@ public class Armour extends Item {
     @Override
     public int hashCode()
     {
-        return -1;
+        return this.getName().hashCode()
+		+ this.getMaterial().hashCode()
+		+ this.getModifier().hashCode()
+		+ this.getElement().hashCode();
     }
 
     /**
