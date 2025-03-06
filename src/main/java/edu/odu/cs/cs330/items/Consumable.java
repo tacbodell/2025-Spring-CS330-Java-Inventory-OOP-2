@@ -38,7 +38,10 @@ public class Consumable extends Item {
      */
     public Consumable(Consumable src)
     {
+       super(src.getName(), src.isStackable());
 
+       this.setEffect(src.getEffect());
+       this.setNumberOfUses(src.getNumberOfUses());
     }
 
     /**
@@ -105,7 +108,7 @@ public class Consumable extends Item {
     public Item clone()
     {
         // Replace the next line
-        return null;
+        return new Consumable(this);
     }
 
     /**
@@ -145,6 +148,10 @@ public class Consumable extends Item {
     @Override
     public String toString()
     {
-        return "";
+        String summaryLine = String.format(
+            "  Nme: %s%n  Eft: %s%n  Use: %d%n",
+                this.getName(),
+                this.getEffect(),
+                this.getNumberOfUses()
     }
 }
